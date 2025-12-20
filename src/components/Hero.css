@@ -13,7 +13,7 @@
 
 /* Center ALL hero content */
 .hero .container {
-  transform: translateY(100px); /* tweak: 12px–32px */
+  transform: translateY(100px); 
   text-align: center;
 }
 

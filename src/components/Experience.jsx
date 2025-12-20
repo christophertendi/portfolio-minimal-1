@@ -13,15 +13,16 @@ const Experience = () => {
     {
       title: "Freelance Full-Stack Web Developer",
       company: "PT. Mitra Prana Abadi Sentosa (MPAS)",
-      period: "Nov 2024 – Present",
+      period: "Nov 2025 – Present",
       website: "https://ptmpas.co.id",
-      tech: ["React.js", "Vite", "Vercel", "Hostinger"],
+      tech: ["React.js", "Vite", "Vercel", "Hostinger", "Google Search Console"],
       current: true,
       details: [
-        "Developed corporate website for oil & gas well testing company",
-        "Managed complete technology stack with Vercel deployment",
-        "Designed responsive UI with product catalogs and project modals",
-        "Implemented Google Drive integration and SEO optimization"
+        "Developed and deployed comprehensive corporate website for oil & gas well testing company",
+        "Managed complete technology stack with Vercel deployment and Hostinger for custom domain",
+        "Designed responsive UI with product catalogs, service pages, and interactive project modals",
+        "Implemented Google Drive integration and SEO optimization using Google Search Console",
+        "Created mobile-responsive navigation with social media integration"
       ]
     },
     {
@@ -29,56 +30,62 @@ const Experience = () => {
       company: "PT. Artex Maju Sentosa",
       period: "Oct 2025 – Present",
       website: "https://artex.co.id",
-      tech: ["Google Ads", "GTM", "Figma", "CapCut"],
+      tech: ["Sales", "Google Ads", "Meta Ads", "Google Tag Manager", "Google Search Console", "Figma", "CapCut"],
       current: true,
       details: [
-        "Implemented Google Tag Manager for conversion tracking",
-        "Monitor website performance achieving 4.7% average CTR",
-        "Create social media content across Instagram, LinkedIn, RedNote",
-        "Manage Google Ads campaigns with 336K impressions"
+        "Implemented Google Tag Manager for comprehensive conversion tracking",
+        "Monitor website performance achieving 746 impressions and 35 clicks with 4.7% average CTR",
+        "Conduct traditional sales outreach and lead generation across Jakarta",
+        "Create and manage social media content across Instagram, LinkedIn, and RedNote",
+        "Manage Google Ads campaigns achieving 58% absolute top of page rate with 336K impressions",
+        "Optimize ad performance with average CPC of Rp190 and Rp2.16M budget"
       ]
     },
     {
       title: "Freelance AI Trainer",
       company: "Softage AI",
-      period: "Jun 2025 – Present",
+      period: "Jun – Oct 2025",
       tech: ["AI Training", "Data Curation"],
-      current: true,
       details: [
-        "Curate training data for AI models",
-        "Develop screen recording solutions for model training"
+        "Curate high-quality training data for AI models across VS Code and Canva",
+        "Develop screen recording solutions for model training optimization"
       ]
     },
     {
       title: "IT Product Specialist",
-      company: "J&T Cargo",
+      company: "J&T Cargo (PT. Global Jet Cargo)",
       period: "Mar – Jun 2025",
-      tech: ["Logistics", "API Integration"],
+      tech: ["Logistics", "IT Product", "API Integration"],
       details: [
-        "Migrated 150+ workflow approvals to in-house applications",
-        "Contributed to API integration for logistics features"
+        "Assisted in migrating over 150 workflow approvals to in-house applications",
+        "Contributed to API integration coding for new internal logistics features"
       ]
     },
     {
-      title: "Data Annotator",
-      company: "WIZ AI",
+      title: "Data Annotator (AI Enabling CX)",
+      company: "WIZ AI (PT. Wiz Technology Indonesia)",
       period: "Nov 2024 – Feb 2025",
-      tech: ["AI", "Quality Control"],
+      tech: ["AI Interpretation", "Quality Control", "Translation"],
       details: [
-        "Translation and error annotation for AI training data",
+        "MenuSifu Regional Team supporting AI-enabled customer experience",
+        "Translation and error annotation from Bahasa Indonesia to English",
         "Managed AI translation quality control processes",
-        "Developed SOPs for data annotation"
+        "Conducted AI audio translation testing with comprehensive test calls",
+        "Developed SOPs and trained external teams on data annotation"
       ]
     },
     {
-      title: "Regional PM Intern",
+      title: "Regional Product Management Intern",
       company: "Sea Labs Indonesia (Shopee)",
       period: "Jun – Sep 2024",
-      tech: ["Content Moderation", "Data Query"],
+      tech: ["Content Moderation", "Quality Control", "Data Query"],
       details: [
-        "Content Trust and Safety across Southeast Asia",
-        "Managed quality control for Shopee Live across 5 regions",
-        "Reviewed 5,000+ violations for platform compliance"
+        "Content Trust and Safety Regional Team overseeing Southeast Asia",
+        "Managed daily moderation quality control for Shopee Live across 5 regions",
+        "Reviewed over 5,000 Shopee Live sticker violations for platform compliance",
+        "Executed data queries for pre-recorded violations (Malaysia and Thailand)",
+        "Formulated strategic improvements for manual QC moderation systems",
+        "Conducted manual QC for Top Video Evaluation across Indonesia, Thailand, Vietnam"
       ]
     },
     {
@@ -86,32 +93,35 @@ const Experience = () => {
       company: "PT. Artex Maju Sentosa",
       period: "Sep 2023 – Oct 2024",
       website: "https://artex.co.id",
-      tech: ["React.js", "Figma"],
+      tech: ["Figma", "React.js", "Hostinger", "Google Search Console"],
       details: [
-        "End-to-end website development and deployment",
+        "End-to-end website development: designed (Figma), programmed (React.js), deployed",
         "Implemented responsive design principles",
-        "Optimized site performance"
+        "Optimized site performance using Google Search Console",
+        "Delivered project within timeline improving online presence"
       ]
     },
     {
       title: "Technical Consultant Intern",
       company: "PT. Phincon",
       period: "Feb 2023 – Feb 2024",
-      tech: ["Genesys", "Wireshark"],
+      tech: ["Genesys Framework", "Wireshark", "Testing"],
       details: [
         "CIMB Contact Center Solutions team",
-        "Testing of agent calls in Genesys Workspace",
-        "VOIP file integrity testing"
+        "Tested agent inbound and outbound calls in Genesys Workspace Development",
+        "Tested VOIP file integrity using Wireshark for newly deployed systems",
+        "Performed comprehensive testing of IVR flows and voice files",
+        "Tested CIMB online and WhatsApp chatbot functionality"
       ]
     },
     {
-      title: "Frontend Developer Intern",
-      company: "Digiasia Bios",
+      title: "Frontend Web Developer Intern",
+      company: "Digiasia Bios (PT. Solusi Pasti Indonesia)",
       period: "Aug – Sep 2022",
       tech: ["Nuxt.js"],
       details: [
-        "Kaspro payment platform frontend team",
-        "Developed account management features"
+        "Kaspro (digital payment platform) frontend programming team",
+        "Developed customer account management features with 4 core actions: lock, unlock, suspend, unsuspend"
       ]
     }
   ];

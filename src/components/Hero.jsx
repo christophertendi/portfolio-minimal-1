@@ -22,9 +22,9 @@ const Hero = () => {
         <p className="tagline">Full-Stack Developer & Product Management</p>
         
         <p className="bio">
-          Computer Science graduate pursuing Master's in Data Science. I build 
-          scalable web applications with React and modern tools, while exploring 
-          AI/ML and data-driven solutions.
+          Computer Science graduate pursuing Master's in Data Science with 3+ years of 
+          software development and product management experience. Proven track record in 
+          AI/ML implementation, content moderation systems, and full-stack web development.
         </p>
         
         <div className="hero-actions">
