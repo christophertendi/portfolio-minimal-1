@@ -1,0 +1,134 @@
+:root {
+  --nav-h: 72px;
+}
+
+/* .hero {
+  min-height: calc(100svh - var(--nav-h));
+  padding: 4rem 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+/* Center ALL hero content */
+.hero .container {
+  transform: translateY(100px); /* tweak: 12px–32px */
+  text-align: center;
+}
+
+/* Make paragraphs center nicely (without weird widths) */
+.hero .bio {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Center the flex rows (buttons, icons, stats) */
+.hero-actions,
+.social-links,
+.stats {
+  justify-content: center;
+}
+
+
+
+
+
+.greeting {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.name {
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.tagline {
+  font-size: 1.25rem;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.bio {
+  max-width: 600px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  transition: all 0.2s;
+}
+
+.social-link:hover {
+  border-color: var(--text);
+  color: var(--text);
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  gap: 3rem;  
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 50px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding: 4rem 0;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .stats {
+    gap: 2rem;
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+  }
+}
