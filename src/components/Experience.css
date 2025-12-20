@@ -7,6 +7,11 @@
 .exp-item {
   padding-bottom: 2rem;
   border-bottom: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.exp-item:hover {
+  transform: translateX(5px);
 }
 
 .exp-item:last-child {
