@@ -77,6 +77,10 @@
   gap: 1.25rem;
 }
 
+.contact-form .btn {
+  align-self: center;
+}
+
 .form-group {
   display: flex;
   flex-direction: column;

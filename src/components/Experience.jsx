@@ -13,7 +13,7 @@ const Experience = () => {
     {
       title: "Freelance Full-Stack Web Developer",
       company: "PT. Mitra Prana Abadi Sentosa (MPAS)",
-      period: "Dec 2024 – Present",
+      period: "Nov 2024 – Present",
       website: "https://ptmpas.co.id",
       tech: ["React.js", "Vite", "Vercel", "Hostinger"],
       current: true,
