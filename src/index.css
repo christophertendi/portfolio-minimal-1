@@ -97,7 +97,7 @@ a:hover {
 }
 
 .section {
-  padding: 3rem 0;
+  padding: 2rem 0;
 }
 
 .section-title {
@@ -272,6 +272,6 @@ code {
   }
   
   .section {
-    padding: 4rem 0;
+    padding: 2rem;
   }
 }

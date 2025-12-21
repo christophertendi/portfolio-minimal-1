@@ -67,12 +67,12 @@ ${formData.message}
                 <Mail size={18} />
                 <a href="mailto:chris.samuelten@gmail.com">chris.samuelten@gmail.com</a>
               </div>
-              <div className="contact-item">
+              {/* <div className="contact-item">
                 <Phone size={18} />
                 <a href="https://wa.me/6281290399539" target="_blank" rel="noopener noreferrer">
                   +62 812-9039-9539
                 </a>
-              </div>
+              </div> */}
               <div className="contact-item">
                 <MapPin size={18} />
                 <span>Jakarta, Indonesia</span>
