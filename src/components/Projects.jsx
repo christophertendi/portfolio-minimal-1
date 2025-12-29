@@ -4,6 +4,13 @@ import './Projects.css';
 const Projects = () => {
   const projects = [
     {
+      title: "Memory Books - Digital Scrapbook",
+      company: "Personal Project",
+      description: "A minimalist web application for couples to store and cherish memories. Features Firebase authentication, drag-and-drop polaroid-style photo cards, custom book cover designer, and real-time cloud sync with comprehensive security.",
+      link: "https://memory-books.vercel.app",
+      tech: ["React.js", "Vite", "Firebase", "Firestore", "Vercel"]
+    },
+    {
       title: "MPAS Corporate Website",
       company: "PT. Mitra Prana Abadi Sentosa",
       description: "Corporate website for oil & gas well testing company. Built with React.js, featuring product catalogs, service showcases, and interactive project modals.",
