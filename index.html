@@ -4,16 +4,70 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Christopher Samuel Tendi - Full-Stack Developer & Product Management" />
-    <meta name="theme-color" content="#0a0a0a" />
-    <title>Christopher Samuel Tendi</title>
     
-    <!-- Inter Font -->
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Christopher Samuel Tendi - Full-Stack Developer & Product Management specialist with 3+ years of experience in AI/ML, web development, and data science." />
+    <meta name="keywords" content="Christopher Tendi, Full-Stack Developer, Product Management, React.js, Firebase, Data Science, AI/ML, Web Development, Jakarta" />
+    <meta name="author" content="Christopher Samuel Tendi" />
+    
+    <!-- Security Meta Tags -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      font-src 'self' https://fonts.gstatic.com;
+      img-src 'self' data: https:;
+      connect-src 'self';
+      frame-ancestors 'none';
+      base-uri 'self';
+      form-action 'self' mailto:;
+    " />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Christopher Samuel Tendi - Full-Stack Developer" />
+    <meta property="og:description" content="Full-Stack Developer & Product Management specialist with expertise in React.js, Firebase, and Data Science" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://christophertendi.com" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Christopher Samuel Tendi - Full-Stack Developer" />
+    <meta name="twitter:description" content="Full-Stack Developer & Product Management specialist" />
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a" />
+    
+    <!-- Prevent search engine indexing of sensitive pages (remove in production) -->
+    <!-- <meta name="robots" content="noindex, nofollow" /> -->
+    
+    <title>Christopher Samuel Tendi - Full-Stack Developer & Product Management</title>
+    
+    <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Inter Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Prefetch DNS for external resources -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
   </head>
   <body>
+    <noscript>
+      <div style="padding: 2rem; text-align: center; font-family: system-ui, sans-serif;">
+        <h1>JavaScript Required</h1>
+        <p>This portfolio requires JavaScript to be enabled. Please enable JavaScript in your browser settings to view the content.</p>
+      </div>
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

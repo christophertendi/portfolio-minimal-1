@@ -1,6 +1,14 @@
-import { useState } from 'react';
-import { Mail, MapPin, Send, Phone } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { Mail, MapPin, Send, Phone, AlertCircle } from 'lucide-react';
 import './Contact.css';
+import {
+  sanitizeInput,
+  validateEmail,
+  validateName,
+  validateMessage,
+  RateLimiter,
+  secureFormSubmit
+} from '../utils/security';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,9 +18,48 @@ const Contact = () => {
   });
 
   const [showSuccess, setShowSuccess] = useState(false);
+  const [errors, setErrors] = useState({});
+  const [submitError, setSubmitError] = useState('');
+  const rateLimiterRef = useRef(new RateLimiter(3, 60000)); // 3 attempts per minute
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    
+    // Clear errors for this field
+    if (errors[name]) {
+      setErrors(prev => {
+        const newErrors = { ...prev };
+        delete newErrors[name];
+        return newErrors;
+      });
+    }
+    
+    // Real-time validation
+    let isValid = true;
+    let errorMsg = '';
+    
+    if (name === 'name' && value.length > 0) {
+      isValid = validateName(value);
+      errorMsg = 'Only letters, spaces, hyphens, and apostrophes allowed';
+    } else if (name === 'email' && value.length > 0) {
+      isValid = validateEmail(value);
+      errorMsg = 'Please enter a valid email address';
+    } else if (name === 'message' && value.length > 0) {
+      if (value.length < 10) {
+        isValid = false;
+        errorMsg = 'Message must be at least 10 characters';
+      } else if (value.length > 5000) {
+        isValid = false;
+        errorMsg = 'Message must not exceed 5000 characters';
+      }
+    }
+    
+    // Show error if invalid
+    if (!isValid && value.length > 0) {
+      setErrors(prev => ({ ...prev, [name]: errorMsg }));
+    }
+    
+    // Update form data (allow typing even if validation fails)
     setFormData({
       ...formData,
       [name]: value
@@ -22,33 +69,57 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Create mailto link with form data
-    const subject = `Portfolio Contact from ${formData.name}`;
+    // Clear previous errors
+    setErrors({});
+    setSubmitError('');
+    
+    // Validate using secure form submit
+    const validation = secureFormSubmit(formData, rateLimiterRef.current);
+    
+    if (!validation.success) {
+      if (validation.error) {
+        setSubmitError(validation.error);
+      }
+      if (validation.errors) {
+        setErrors(validation.errors);
+      }
+      return;
+    }
+    
+    // Use sanitized data
+    const sanitizedData = validation.data;
+    
+    // Create mailto link with sanitized data
+    const subject = `Portfolio Contact from ${sanitizedData.name}`;
     const body = `
-Name: ${formData.name}
-Email: ${formData.email}
+Name: ${sanitizedData.name}
+Email: ${sanitizedData.email}
 
 Message:
-${formData.message}
+${sanitizedData.message}
     `.trim();
 
     const mailtoLink = `mailto:chris.samuelten@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     
-    // Open mailto link
-    window.location.href = mailtoLink;
-    
-    // Show success message
-    setShowSuccess(true);
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      message: ''
-    });
+    try {
+      // Open mailto link
+      window.location.href = mailtoLink;
+      
+      // Show success message
+      setShowSuccess(true);
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        message: ''
+      });
 
-    // Hide success message after 5 seconds
-    setTimeout(() => setShowSuccess(false), 5000);
+      // Hide success message after 5 seconds
+      setTimeout(() => setShowSuccess(false), 5000);
+    } catch (error) {
+      setSubmitError('Failed to open email client. Please try again.');
+    }
   };
 
   return (
@@ -95,6 +166,13 @@ ${formData.message}
               </div>
             )}
 
+            {submitError && (
+              <div className="error-message">
+                <AlertCircle size={20} />
+                <span>{submitError}</span>
+              </div>
+            )}
+
             <form onSubmit={handleSubmit} className="contact-form">
               <div className="form-group">
                 <label htmlFor="name">Name</label>
@@ -106,7 +184,13 @@ ${formData.message}
                   onChange={handleChange}
                   placeholder="Your name"
                   required
+                  maxLength={100}
+                  aria-invalid={errors.name ? 'true' : 'false'}
+                  aria-describedby={errors.name ? 'name-error' : undefined}
                 />
+                {errors.name && (
+                  <span className="field-error" id="name-error">{errors.name}</span>
+                )}
               </div>
 
               <div className="form-group">
@@ -119,7 +203,13 @@ ${formData.message}
                   onChange={handleChange}
                   placeholder="your.email@example.com"
                   required
+                  maxLength={254}
+                  aria-invalid={errors.email ? 'true' : 'false'}
+                  aria-describedby={errors.email ? 'email-error' : undefined}
                 />
+                {errors.email && (
+                  <span className="field-error" id="email-error">{errors.email}</span>
+                )}
               </div>
 
               <div className="form-group">
@@ -132,7 +222,17 @@ ${formData.message}
                   rows="5"
                   placeholder="Tell me about your project or inquiry..."
                   required
+                  minLength={10}
+                  maxLength={5000}
+                  aria-invalid={errors.message ? 'true' : 'false'}
+                  aria-describedby={errors.message ? 'message-error' : undefined}
                 />
+                <div className="char-count">
+                  {formData.message.length} / 5000 characters
+                </div>
+                {errors.message && (
+                  <span className="field-error" id="message-error">{errors.message}</span>
+                )}
               </div>
 
               <button type="submit" className="btn btn-primary">
