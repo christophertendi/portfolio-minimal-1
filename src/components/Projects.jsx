@@ -6,7 +6,7 @@ const Projects = () => {
     {
       title: "Memory Books - Digital Scrapbook",
       company: "Personal Project",
-      description: "A minimalist web application for couples to store and cherish memories. Features Firebase authentication, drag-and-drop polaroid-style photo cards, custom book cover designer, and real-time cloud sync with comprehensive security.",
+      description: "In progress - A minimalist web application for couples to store and cherish memories. Features Firebase authentication, drag-and-drop polaroid-style photo cards, custom book cover designer, and real-time cloud sync with comprehensive security.",
       link: "https://memory-books.vercel.app",
       tech: ["React.js", "Vite", "Firebase", "Firestore", "Vercel"]
     },
