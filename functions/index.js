@@ -193,7 +193,6 @@ exports.sendAutoReply = onDocumentCreated('contact_submissions/{submissionId}', 
             
             <div class="footer">
               <p>This is an automated response from my portfolio.</p>
-              <p style="color: #bbb;">Please do not reply to this email directly.</p>
             </div>
           </div>
         </body>
