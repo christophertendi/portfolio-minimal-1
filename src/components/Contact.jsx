@@ -1,14 +1,14 @@
-import { useState, useRef, useEffect } from 'react';
-import { Mail, MapPin, Send, Phone, AlertCircle } from 'lucide-react';
+import { useState, useRef } from 'react';
+import { Mail, MapPin, Send, AlertCircle, CheckCircle } from 'lucide-react';
 import './Contact.css';
 import {
-  sanitizeInput,
   validateEmail,
   validateName,
   validateMessage,
   RateLimiter,
   secureFormSubmit
 } from '../utils/security';
+import { submitContactForm } from '../services/contactService';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -20,6 +20,7 @@ const Contact = () => {
   const [showSuccess, setShowSuccess] = useState(false);
   const [errors, setErrors] = useState({});
   const [submitError, setSubmitError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const rateLimiterRef = useRef(new RateLimiter(3, 60000)); // 3 attempts per minute
 
   const handleChange = (e) => {
@@ -32,6 +33,11 @@ const Contact = () => {
         delete newErrors[name];
         return newErrors;
       });
+    }
+    
+    // Clear submit error when user starts typing
+    if (submitError) {
+      setSubmitError('');
     }
     
     // Real-time validation
@@ -66,8 +72,11 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Prevent double submission
+    if (isSubmitting) return;
     
     // Clear previous errors
     setErrors({});
@@ -89,36 +98,34 @@ const Contact = () => {
     // Use sanitized data
     const sanitizedData = validation.data;
     
-    // Create mailto link with sanitized data
-    const subject = `Portfolio Contact from ${sanitizedData.name}`;
-    const body = `
-Name: ${sanitizedData.name}
-Email: ${sanitizedData.email}
-
-Message:
-${sanitizedData.message}
-    `.trim();
-
-    const mailtoLink = `mailto:chris.samuelten@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
     try {
-      // Open mailto link
-      window.location.href = mailtoLink;
+      setIsSubmitting(true);
       
-      // Show success message
-      setShowSuccess(true);
+      // Submit to Firebase
+      const result = await submitContactForm(sanitizedData);
       
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        message: ''
-      });
-
-      // Hide success message after 5 seconds
-      setTimeout(() => setShowSuccess(false), 5000);
+      if (result.success) {
+        // Show success message
+        setShowSuccess(true);
+        
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          message: ''
+        });
+        
+        // Hide success message after 7 seconds
+        setTimeout(() => setShowSuccess(false), 7000);
+      } else {
+        // Show error
+        setSubmitError(result.error || 'Failed to send message. Please try again.');
+      }
     } catch (error) {
-      setSubmitError('Failed to open email client. Please try again.');
+      console.error('Submission error:', error);
+      setSubmitError('An unexpected error occurred. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -138,12 +145,6 @@ ${sanitizedData.message}
                 <Mail size={18} />
                 <a href="mailto:chris.samuelten@gmail.com">chris.samuelten@gmail.com</a>
               </div>
-              {/* <div className="contact-item">
-                <Phone size={18} />
-                <a href="https://wa.me/6281290399539" target="_blank" rel="noopener noreferrer">
-                  +62 812-9039-9539
-                </a>
-              </div> */}
               <div className="contact-item">
                 <MapPin size={18} />
                 <span>Jakarta, Indonesia</span>
@@ -153,15 +154,15 @@ ${sanitizedData.message}
 
           <div className="contact-form-container">
             <p className="form-subtitle">
-              Fill out the form and your email client will open with your message
+              Send me a message and I'll get back to you as soon as possible
             </p>
 
             {showSuccess && (
               <div className="success-message">
-                <span className="success-icon">✓</span>
+                <CheckCircle size={20} />
                 <div>
-                  <strong>Form submitted!</strong><br />
-                  Your email client should open. If not, please email me directly.
+                  <strong>Message sent successfully!</strong><br />
+                  Thank you for reaching out. I'll respond to your message soon.
                 </div>
               </div>
             )}
@@ -175,7 +176,7 @@ ${sanitizedData.message}
 
             <form onSubmit={handleSubmit} className="contact-form">
               <div className="form-group">
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name">Name *</label>
                 <input
                   type="text"
                   id="name"
@@ -185,6 +186,7 @@ ${sanitizedData.message}
                   placeholder="Your name"
                   required
                   maxLength={100}
+                  disabled={isSubmitting}
                   aria-invalid={errors.name ? 'true' : 'false'}
                   aria-describedby={errors.name ? 'name-error' : undefined}
                 />
@@ -194,7 +196,7 @@ ${sanitizedData.message}
               </div>
 
               <div className="form-group">
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email">Email *</label>
                 <input
                   type="email"
                   id="email"
@@ -204,6 +206,7 @@ ${sanitizedData.message}
                   placeholder="your.email@example.com"
                   required
                   maxLength={254}
+                  disabled={isSubmitting}
                   aria-invalid={errors.email ? 'true' : 'false'}
                   aria-describedby={errors.email ? 'email-error' : undefined}
                 />
@@ -213,7 +216,7 @@ ${sanitizedData.message}
               </div>
 
               <div className="form-group">
-                <label htmlFor="message">Message</label>
+                <label htmlFor="message">Message *</label>
                 <textarea
                   id="message"
                   name="message"
@@ -224,6 +227,7 @@ ${sanitizedData.message}
                   required
                   minLength={10}
                   maxLength={5000}
+                  disabled={isSubmitting}
                   aria-invalid={errors.message ? 'true' : 'false'}
                   aria-describedby={errors.message ? 'message-error' : undefined}
                 />
@@ -235,9 +239,22 @@ ${sanitizedData.message}
                 )}
               </div>
 
-              <button type="submit" className="btn btn-primary">
-                Send Message
-                <Send size={16} />
+              <button 
+                type="submit" 
+                className="btn btn-primary"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <>
+                    <span className="spinner"></span>
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    Send Message
+                    <Send size={16} />
+                  </>
+                )}
               </button>
             </form>
           </div>

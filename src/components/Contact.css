@@ -58,19 +58,6 @@
   margin-bottom: 1rem;
 }
 
-.error-message {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 1rem;
-  background: rgba(239, 68, 68, 0.1);
-  border: 1px solid #ef4444;
-  border-radius: 6px;
-  color: #ef4444;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-}
-
 .success-icon {
   display: flex;
   align-items: center;
@@ -84,30 +71,6 @@
   flex-shrink: 0;
 }
 
-.field-error {
-  display: block;
-  color: #ef4444;
-  font-size: 0.85rem;
-  margin-top: 0.5rem;
-}
-
-.form-group input.error,
-.form-group textarea.error {
-  border-color: #ef4444;
-}
-
-.form-group input[aria-invalid="true"],
-.form-group textarea[aria-invalid="true"] {
-  border-color: #ef4444;
-}
-
-.char-count {
-  text-align: right;
-  font-size: 0.8rem;
-  color: var(--text-tertiary);
-  margin-top: 0.25rem;
-}
-
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -116,6 +79,33 @@
 
 .contact-form .btn {
   align-self: center;
+}
+
+.contact-form .btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--bg);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.form-group input:disabled,
+.form-group textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .form-group {
