@@ -25,7 +25,7 @@ const Experience = () => {
         "Independently exploring, designing, building, and managing an end-to-end chat & talkbot system using Dialogflow CX",
         "Developed a chatbot and voice-enabled talkbot with its own number, supporting both text and voice interactions",
         "Built an internal Node.js server and HTML interface to run, test, and display the bot locally",
-        "Researched and attempted Twilio WhatsApp integration, halted due to platform upgrade and cost constraints"
+        "Researched and attempted Twilio WhatsApp integration"
       ]
     },
     {
