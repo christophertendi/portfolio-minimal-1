@@ -16,7 +16,7 @@ const Skills = () => {
     },
     {
       title: "Cloud & DevOps",
-      skills: ["Vercel", "Hostinger", "API Integration"]
+      skills: ["Vercel", "Hostinger", "Ngrok", "API Integration"]
     },
     {
       title: "Design & Marketing",

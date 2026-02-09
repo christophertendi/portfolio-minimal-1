@@ -12,6 +12,7 @@ const Projects = () => {
         "Dialogflow CX",
         "Node.js",
         "Chatbot/Talkbot",
+        "Ngrok",
         "Twilio"
       ]
     },

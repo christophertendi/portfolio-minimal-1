@@ -18,6 +18,7 @@ const Experience = () => {
         "Dialogflow CX",
         "Node.js",
         "Chatbot/Talkbot",
+        "Ngrok",
         "Twilio"
       ],
       current: true,
@@ -25,6 +26,7 @@ const Experience = () => {
         "Independently exploring, designing, building, and managing an end-to-end chat & talkbot system using Dialogflow CX",
         "Developed a chatbot and voice-enabled talkbot with its own number, supporting both text and voice interactions",
         "Built an internal Node.js server and HTML interface to run, test, and display the bot locally",
+        "Integrate ngrok for secure tunneling to local app",
         "Researched and attempted Twilio WhatsApp integration"
       ]
     },
