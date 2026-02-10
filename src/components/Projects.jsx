@@ -12,7 +12,7 @@ const Projects = () => {
         "Cloudflare Workers AI",
         "React.js",
         "Vercel",
-        "Serverless",
+        "Supabase"
       ]
     },
     
