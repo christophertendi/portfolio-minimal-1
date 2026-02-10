@@ -3,11 +3,24 @@ import './Projects.css';
 
 const Projects = () => {
   const projects = [
+        {
+      title: "Safeguard AI",
+      company: "Personal Project",
+      description: " Real-time content moderation platform using Cloudflare Workers AI for text toxicity and image NSFW detection, with fallback classifiers. 100 - 200ms latency, $0 cost. Document upload, firebase integration and toggle dark/light mode soon.",
+      link: "https://safeguard-dashboard-three.vercel.app/",
+        tech: [
+        "Cloudflare Workers AI",
+        "React.js",
+        "Vercel",
+        "Serverless",
+      ]
+    },
+    
     {
       title: "Asuransi Sinarmas Chat & Talkbot",
       company: "Asuransi Sinarmas",
       description:
-        "An conversational AI system built using Dialogflow CX that functions as both a chatbot and voice-enabled talkbot, allowing users to interact via text or phone call. The project includes an internal Node.js server and HTML-based interface to run, test, and display the bot locally, with exploratory WhatsApp integration via Twilio",
+        "An conversational AI system built using Dialogflow CX that functions as both a chatbot and voice-enabled talkbot, allowing users to interact via text or phone call. The project includes an internal Node.js server and HTML-based interface to run, test, and display the bot locally, with exploratory WhatsApp integration via Twilio. Toggle dark/light mode soon.",
       link: "https://drive.google.com/file/d/17Z3jMj5EC5EFAMprPcS4Tqae29qXs-f4/view?usp=sharing",
         tech: [
         "Dialogflow CX",
