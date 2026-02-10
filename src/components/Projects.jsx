@@ -8,7 +8,8 @@ const Projects = () => {
       company: "Asuransi Sinarmas",
       description:
         "An conversational AI system built using Dialogflow CX that functions as both a chatbot and voice-enabled talkbot, allowing users to interact via text or phone call. The project includes an internal Node.js server and HTML-based interface to run, test, and display the bot locally, with exploratory WhatsApp integration via Twilio",
-      tech: [
+      link: "https://drive.google.com/file/d/17Z3jMj5EC5EFAMprPcS4Tqae29qXs-f4/view?usp=sharing",
+        tech: [
         "Dialogflow CX",
         "Node.js",
         "Chatbot/Talkbot",
