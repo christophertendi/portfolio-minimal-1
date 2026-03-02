@@ -17,17 +17,20 @@ const Experience = () => {
       tech: [
         "Dialogflow CX",
         "Node.js",
-        "Chatbot/Talkbot",
+        "Express.js",
+        "Nodemailer",
         "Ngrok",
-        "Twilio"
+        "Webhook Integration"
       ],
       current: true,
       details: [
-        "Independently exploring, designing, building, and managing an end-to-end chat & talkbot system using Dialogflow CX",
-        "Developed a chatbot and voice-enabled talkbot with its own number, supporting both text and voice interactions",
-        "Built an internal Node.js server and HTML interface to run, test, and display the bot locally",
-        "Integrate ngrok for secure tunneling to local app",
-        "Researched and attempted Twilio WhatsApp integration"
+        "Assigned to design and develop a vehicle insurance claim chatbot as an internal Proof of Concept (POC) project",
+        "Built a hybrid architecture using Dialogflow CX for conversational flow management and Node.js/Express backend for business logic and API handling",
+        "Integrated backend with Sinarmas REST APIs for policy validation and claim submission",
+        "Implemented webhook processing to handle Dialogflow CX events and orchestrate external API communication",
+        "Developed a document upload feature with frontend base64 encoding and backend validation",
+        "Implemented automated email confirmation service using Nodemailer with HTML templates",
+        "Configured ngrok tunneling to enable secure webhook communication between Dialogflow CX and local development server"
       ]
     },
     {

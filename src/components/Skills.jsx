@@ -4,27 +4,27 @@ const Skills = () => {
   const skillGroups = [
     {
       title: "Programming",
-      skills: ["Python", "JavaScript", "HTML/CSS"]
+      skills: ["Python", "JavaScript", "HTML", "CSS"]
     },
     {
-      title: "Frameworks & Libraries",
-      skills: ["React.js", "Vite", "Node.js", "Nuxt.js"]
+      title: "Frontend & Backend Development",
+      skills: ["React.js", "Vite", "Node.js", "Express.js", "Nuxt.js"]
     },
     {
       title: "AI & Conversational Systems",
-      skills: ["Dialogflow CX", "Chatbot/Talkbot Design"]
+      skills: ["Dialogflow CX", "Chatbot Architecture", "Webhook Integration"]
     },
     {
-      title: "Cloud & DevOps",
-      skills: ["Vercel", "Hostinger", "Ngrok", "API Integration"]
+      title: "Cloud & Deployment",
+      skills: ["Vercel", "Hostinger", "Ngrok"]
     },
     {
-      title: "Design & Marketing",
-      skills: ["Figma", "CapCut", "UI/UX", "Google Ads", "SEO"]
+      title: "Tools & Testing",
+      skills: ["Git", "VS Code", "Wireshark", "Postman", "Google Analytics"]
     },
     {
-      title: "Tools",
-      skills: ["Git", "VS Code", "Wireshark", "Google Analytics"]
+      title: "Design",
+      skills: ["Figma", "UI/UX"]
     }
   ];
 

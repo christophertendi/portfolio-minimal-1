@@ -17,17 +17,16 @@ const Projects = () => {
     },
     
     {
-      title: "Insurance Chatbot",
-      // company: "Asuransi Sinarmas",
+      title: "Vehicle Insurance Claim Chatbot (Internal POC)",
       description:
-        "An conversational AI system built using Dialogflow CX that functions as both a chatbot and voice-enabled talkbot, allowing users to interact via text or phone call. The project includes an internal Node.js server and HTML-based interface to run, test, and display the bot locally, with exploratory WhatsApp integration via Twilio. Toggle dark/light mode soon.",
-      link: "https://drive.google.com/file/d/17Z3jMj5EC5EFAMprPcS4Tqae29qXs-f4/view?usp=sharing",
-        tech: [
+        "An internal Proof of Concept developed at PT. Asuransi Sinarmas to demonstrate a digital vehicle insurance claim process through a conversational interface. The system uses Dialogflow CX for natural language flow management and a Node.js/Express backend to handle business logic, webhook processing, policy validation, claim submission, document upload, and automated email confirmation.",
+      tech: [
         "Dialogflow CX",
         "Node.js",
-        "Chatbot/Talkbot",
-        "Ngrok",
-        "Twilio"
+        "Express.js",
+        "Webhook Integration",
+        "Nodemailer",
+        "Ngrok"
       ]
     },
     {
